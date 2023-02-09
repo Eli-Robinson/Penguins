@@ -1,0 +1,63 @@
+---
+title: "Lab 3 - Penguins"
+author: "Eli Robinson"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message = FALSE)
+```
+
+```{r, include = FALSE}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+## Data
+
+The data set used in this report is the palmer penguins dataset which is an open data set used for data exploration and data description
+
+Additional dataset information can be found [here](https://allisonhorst.github.io/palmerpenguins/)
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Penguin_in_Antarctica_jumping_out_of_the_water.jpg/2560px-Penguin_in_Antarctica_jumping_out_of_the_water.jpg)
+
+## Single Trait Distribution
+
+Graph of body mass of different species of Penguid
+```{r, echo = FALSE}
+
+ggplot(data = penguins) +
+  geom_density(mapping = aes(x = body_mass_g, color = species, fill = species),alpha = .25)
+
+```
+
+Map of where different species of penguins are found
+```{r, echo = FALSE}
+
+ggplot(data = penguins) +
+  geom_bar(mapping = aes(x = island, fill = species),stat = "count",position="dodge", alpha = .75)
+
+```
+
+## Relationship Between Multiple Traits
+Relating Penguin flipper length to average body mass
+```{r, echo = FALSE, warning=FALSE}
+
+ggplot(data = penguins) +
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+```
+Relating Bill Length to Bill Depth in Gentoo Penguins
+```{r, echo = FALSE, warning=FALSE}
+gentoo_penguins <- penguins %>% filter(species == "Gentoo")
+ggplot(data = gentoo_penguins) +
+  geom_jitter(mapping = aes(x = bill_length_mm, y = bill_depth_mm), color = "blue")+
+  geom_smooth(mapping = aes(x = bill_length_mm, y = bill_depth_mm))
+
+```
+
+## Sexual Dimorphism
+
+
