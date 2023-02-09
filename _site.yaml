@@ -1,0 +1,15 @@
+name: "Penguins-Site"
+navbar:
+  title: "Exploring the Penguins Dataset"
+  left:
+    - text: "Penguins"
+      href: index.html
+    - text: "Body Mass by Species"
+      href: mass.html
+    - text: "Where Species are found"
+      href: loc.html
+    - text: "Flipper Length to Mass"
+      href: flipper.html
+    - text: "Gentoo Bills"
+      href: bill.html
+output_dir: "."

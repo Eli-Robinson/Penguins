@@ -1,0 +1,21 @@
+---
+title: "Penguin Location"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message = FALSE)
+```
+
+```{r, include = FALSE}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+Map of where different species of penguins are found
+```{r, echo = FALSE}
+
+ggplot(data = penguins) +
+  geom_bar(mapping = aes(x = island, fill = species),stat = "count",position="dodge", alpha = .75)
+
+```

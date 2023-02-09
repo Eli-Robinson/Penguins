@@ -1,0 +1,22 @@
+---
+title: "Penguin Mass"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message = FALSE)
+```
+
+```{r, include = FALSE}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+
+Graph of body mass of different species of Penguid
+```{r, echo = FALSE}
+
+ggplot(data = penguins) +
+  geom_density(mapping = aes(x = body_mass_g, color = species, fill = species),alpha = .25)
+
+```

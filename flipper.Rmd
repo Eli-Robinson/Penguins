@@ -1,0 +1,22 @@
+---
+title: "Penguin Flipper to Mass"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message = FALSE)
+```
+
+```{r, include = FALSE}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+Relating Penguin flipper length to average body mass
+```{r, echo = FALSE, warning=FALSE}
+
+ggplot(data = penguins) +
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, color = species))+
+  geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+```
